@@ -1,13 +1,59 @@
-# torque
+# @qtorque/backstage-torque-plugin
 
 Welcome to the torque plugin!
 
-_This plugin was created through the Backstage CLI_
+It is a plugin for the Backstage application that shows infrasture details created in Torque
 
-## Getting started
+## Requirements
 
-Your plugin has been added to the example app in this repository, meaning you'll be able to access it by running `yarn start` in the root directory, and then navigating to [/torque](http://localhost:3000/torque).
+This plugin requires `@qtorque/backstage-plugin-torque-backend` because it connects to the backend to make requests to the Torque API.
 
-You can also serve the plugin in isolation by running `yarn start` in the plugin directory.
-This method of serving the plugin provides quicker iteration speed and a faster startup and hot reloads.
-It is only meant for local development, and the setup for it can be found inside the [/dev](./dev) directory.
+## Installation
+
+First, install the plugin to your backstage app:
+
+```bash
+yarn workspace app add @qtorque/backstage-torque-plugin
+```
+
+Then in your Entity Page (`./packages/app/src/components/catalog/EntityPage.tsx`) add the `TorqueCardComponent`. You can also use the `isTorqueAvailable` function to make sure Torque is avavailable in your component:
+
+```diff
++import { isTorqueAvailable, TorqueCardComponent } from '@qtorque/backstage-torque-plugin';
+...
+const overviewContent = (
+  <Grid item md={6}>
+    <EntityAboutCard variant="gridItem" />
+  </Grid>
++   <EntitySwitch>
++     <EntitySwitch.Case if={isTorqueAvailable}>
++       <Grid item md={6}>
++         <TorqueCardComponent />
++       </Grid>
++     </EntitySwitch.Case>
++   </EntitySwitch>
+```
+
+Add annotations to types that have Torque apps display:
+
+```yaml
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "torque demo" # Change
+  description: Standard Lambda Service
+  annotations:
+    "torque.io/space": "Sample" # Change
+spec:
+  type: service
+  owner: david.stark@quali.com
+  lifecycle: experimental
+```
+
+In your `./app-config.yaml`, provide configuration to `torque` section:
+
+```yaml
+torque:
+  token: ${TORQUE_TOKEN} # without Bearer
+  serverUrl: ${TORQUE_URL} # default is https://portal.qtorque.io
+```

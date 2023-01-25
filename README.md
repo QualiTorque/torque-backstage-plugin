@@ -5,4 +5,4 @@ there are three packages:
 
 * backstage-torque-plugin - the main package that adds Torque components to the Backstage UI
 * backstage-torque-plugin-common - a library that provides a Torque API client
-* backstage-torque-plugin-backend - contains a server that communicates with Torque and implementation for scaffolder template
+* backstage-torque-plugin-backend - adds a scaffolder template action that allows Backstage users to create a service in Torque 
