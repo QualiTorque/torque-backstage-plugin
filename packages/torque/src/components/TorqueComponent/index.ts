@@ -1,0 +1,1 @@
+export { TorqueCardComponent } from './TorqueCardComponent';
