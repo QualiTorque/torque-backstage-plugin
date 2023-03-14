@@ -30,7 +30,7 @@ export default async function createPlugin(
 3. Add `torque` api route to `./packages/backend/src/index.ts`.
 
 ```diff
-import humanitec from './plugins/humanitec';
+import search from './plugins/search';
 + import torque from './plugins/torque';
 
 const searchEnv = useHotMemoize(module, () => createEnv('search'));
