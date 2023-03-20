@@ -3656,10 +3656,10 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-"@qtorque/backstage-plugin-torque-common@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@qtorque/backstage-plugin-torque-common/-/backstage-plugin-torque-common-0.1.1.tgz#9fbe526b2a994d68abedbefea6bf61a412b83789"
-  integrity sha512-M9utNz1Ex7aaW9zN0rly00Y40svODGEHTc7jDW05GHMODe0vl94K4MP/+XZOSQA+v+zwClwQWjz5sLZSA1dsnw==
+"@qtorque/backstage-plugin-torque-common@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@qtorque/backstage-plugin-torque-common/-/backstage-plugin-torque-common-0.1.2.tgz#b5d92fa299a61691c3a3cd3522a6f47c4cd6d854"
+  integrity sha512-CrQSWh9zkitFoxEjmI2r6hAKEBOodkUQER1QKVR4B+ungmvWmw+mxrPRpTG74xO/LNoCyhs3ewpnXUxd4V7IeA==
   dependencies:
     cross-fetch "3.1.5"
     exponential-backoff "^3.1.0"
